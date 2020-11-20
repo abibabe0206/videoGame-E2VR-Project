@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "lpvg"
+  "defaultProject": "lpvg",
+  "cli": {
+    "analytics": "5e45d2fe-d7b3-4783-8f4a-2ef2813b8326"
+  }
 }

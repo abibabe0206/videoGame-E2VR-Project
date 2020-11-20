@@ -1,0 +1,20 @@
+<p mat-dialog-title>Details Dialog</p>
+<mat-dialog-content>
+  <div > <strong>Game Name : </strong>{{data.titleKey}}</div>
+  <img [src]="data.imageUrl" width="400"
+  height="341"/>
+
+  <div *ngIf="data.games">
+    <p mat-dialog-title><strong>Similar Game Name</strong></p>
+    <ul>
+      <li *ngFor="let game of data.games">
+        {{ game.name }}
+      </li>
+    </ul>
+  </div>
+    
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+  <button mat-button class="appButton" (click)="onOk()">Ok</button>
+</mat-dialog-actions>
+

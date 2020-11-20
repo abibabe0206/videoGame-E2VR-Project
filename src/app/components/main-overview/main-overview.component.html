@@ -1,0 +1,63 @@
+<div class="app">
+  <div class="root">
+    <mat-toolbar>
+      <span class="has-gradient-text">{{title}}</span>
+    </mat-toolbar>
+  </div>
+  <div class="board">
+    <div class="board-bar">
+      <span class="board-name">{{boardName}}</span>
+    </div>
+    <div class="board-wrapper">
+      <div class="board-columns">
+        <div class="board-column">
+          <div class="column-title">
+            {{columnName}}
+          </div>
+
+          <div fxLayout="column" fxLayoutGap="10px" *ngIf="isLoadingResults || isRateLimitReached">
+            <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+            <div class="example-rate-limit-reached" *ngIf="isRateLimitReached">
+            </div>
+            <mat-table #table  [dataSource]="dataSource">
+              <div class="header" >
+                <mat-header-row *matHeaderRowDef="videoGameColumns"></mat-header-row>
+              </div>
+              <div>
+                <div class="video-container">
+                  <ng-container matColumnDef="ranking">
+                    <mat-header-cell *matHeaderCellDef fxFlex="10">Ranking</mat-header-cell>
+                    <mat-cell *matCellDef="let element; let i = index" fxFlex="10">{{element.id}}</mat-cell>
+                  </ng-container>
+                  <ng-container matColumnDef="title">
+                    <mat-header-cell *matHeaderCellDef fxFlex="10">Title</mat-header-cell>
+                    <mat-cell *matCellDef="let element; let i = index" fxFlex="10">{{element.name}}</mat-cell>
+                  </ng-container>
+                  <ng-container matColumnDef="releaseDate">
+                    <mat-header-cell *matHeaderCellDef fxFlex="10">Release Date</mat-header-cell>
+                    <mat-cell *matCellDef="let element; let i = index" fxFlex="10">{{element.released}}</mat-cell>
+                  </ng-container>
+                  <ng-container matColumnDef="categories">
+                    <mat-header-cell *matHeaderCellDef fxFlex="10">Categories</mat-header-cell>
+                    <mat-cell *matCellDef="let element; let i = index" fxFlex="10">{{element.slug}}</mat-cell>
+                  </ng-container>
+                  <!-- <ng-container matColumnDef="image">
+                    <mat-header-cell *matHeaderCellDef fxFlex="10">Image</mat-header-cell>
+                    <mat-cell *matCellDef="let element; let i = index" fxFlex="10">
+                      <span [style.background]="element.background_image" width="30px"></span>
+                    </mat-cell>
+                  </ng-container> -->
+                </div>
+                <div>
+                  <mat-row *matRowDef="let row; columns: videoGameColumns; let i = index;" (click)="openDialog(row)"></mat-row>
+                </div>
+              </div>
+            </mat-table>
+          </div>
+          <mat-paginator [length]="50" [pageSize]="10"></mat-paginator>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

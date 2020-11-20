@@ -1,6 +1,27 @@
-# Lpvg
+# Video Game E2VR Project
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.2.
+# Descriptions
+
+- This project is a small application used for traveling.  
+  The project is made of **Two parts**:
+- The Front end section ([Angular 11](https://angular.io)), also built using **Visual Studio Code**.
+- The database in **RAWG** running on [rawg.oi](https://rawg.io/apidocs).
+
+## Installation
+
+If you want to clone this project, make sure to do :
+
+```bash
+npm install
+```
+
+This will automatically install all necessary libraries and dependencies.
+
+To run the frontend section of the application after cloning do :
+
+```bash
+npm start  or npm serve
+```
 
 ## Development server
 
